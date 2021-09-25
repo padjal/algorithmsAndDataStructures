@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest2/Test.h
+
+/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest2/TestClass.cpp
+iostream
+-
+Test.h
+/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest2/Test.h
+
