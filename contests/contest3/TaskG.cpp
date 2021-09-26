@@ -1,5 +1,6 @@
 //
 // Created by padjal on 23.09.21 г..
+// Rotate array by 90 degrees.
 //
 #include <iostream>
 
@@ -13,15 +14,10 @@ int main() {
     if (n < 1 || m > 1000)
         return 0;
 
-    int** arr = new int*[n];
+    int **arr = new int *[n];
     for (int i = 0; i < n; ++i) {
         arr[i] = new int[m];
     }
-
-    /*int** turnedArr = new int*[m];
-    for (int i = 0; i < m; ++i) {
-        turnedArr[i] = new int[n];
-    }*/
 
     // Read array.
     for (int i = 0; i < n; ++i) {
@@ -30,26 +26,21 @@ int main() {
         }
     }
 
-    // Rotate matrix.
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            cout << arr[n - i][i] << " ";
+    cout << m << " " << n << endl;
+
+    // Display rotated matrix.
+    for (int i = 0; i < m; ++i) {
+        for (int j = n - 1; j >= 0; --j) {
+            cout << arr[j][i] << " ";
         }
         cout << endl;
     }
-
-    // Display rotated matrix.
-    /*for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            cout << turnedArr[i][j] << " ";
-        }
-        cout << endl;
-    }*/
 
     for (int i = 0; i < n; ++i) {
         delete arr[i];
     }
 
     delete[] arr;
+    arr = nullptr;
     return 0;
 }
