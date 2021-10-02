@@ -4,9 +4,29 @@
 //
 
 #include <iostream>
+#include <string>
+
+std::string checkPluses(std::string str1, std::string str2) {
+    std::string result;
+    if (str1.length() <= str2.length()) {
+        for (int i = 0; i < str1.length(); ++i) {
+            if (str1[i] == '+') {
+                str2[i] = '+';
+            }
+        }
+        return str2;
+    } else {
+        for (int i = 0; i < str2.length(); ++i) {
+            if (str2[i] == '+') {
+                str1[i] = '+';
+            }
+        }
+        return str1;
+    }
+}
 
 int main() {
-    int n; // number of rows
+    int n;  // number of rows
     std::cin >> n;
 
     // Validate input.
@@ -14,9 +34,9 @@ int main() {
         return 0;
     }
 
-    std::string firstRow, secondRow, thirdRow;
+    std::string firstRow, secondRow, thirdRow, previousRow;
 
-    int m; // number of columns
+    int m;  // number of columns
     for (int i = 0; i < n; ++i) {
         std::cin >> m;
 
@@ -43,18 +63,34 @@ int main() {
             firstRow += "+";
             secondRow += "|";
             thirdRow += "+";
-
-
         }
 
-        std::cout << firstRow << std::endl;
+        if (i == 0) {
+            std::cout << firstRow << std::endl;
+            std::cout << secondRow << std::endl;
+            previousRow = thirdRow;
+
+            if (n == 1) {
+                std::cout << thirdRow << std::endl;
+            }
+
+            firstRow = "";
+            secondRow = "";
+            thirdRow = "";
+            continue;
+        }
+
+        std::cout << checkPluses(firstRow, previousRow) << std::endl;
         std::cout << secondRow << std::endl;
+        previousRow = thirdRow;
+
+        if (i == n - 1) {
+            std::cout << thirdRow << std::endl;
+        }
 
         firstRow = "";
         secondRow = "";
         thirdRow = "";
-
-
     }
     return 0;
 }
