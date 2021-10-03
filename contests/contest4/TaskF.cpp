@@ -9,10 +9,12 @@
 
 std::string findDifferent(std::string str1, std::string str2) {
     std::string result;
-    for (char i: str1) {
+    for (char i : str1) {
         if (str2.find(i) == -1) {
             if (result.find(i) == -1) {
-                result += i;
+                if (i != ' ') {
+                    result += i;
+                }
             }
         }
     }
@@ -32,9 +34,13 @@ int main() {
     std::sort(std::begin(result), std::end(result));
 
     std::string result2;
-    for (char i: result) {
+    for (char i : result) {
         result2 += i;
         result2 += " ";
+    }
+
+    if (result2.length() == 0) {
+        result2 = "NONE";
     }
 
     std::cout << result2;

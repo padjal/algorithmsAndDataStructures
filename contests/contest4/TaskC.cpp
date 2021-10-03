@@ -15,25 +15,37 @@ int main() {
 
     // Count how many words.
     int words = 1;
-    for (char i: phrase) {
+    for (char i : phrase) {
         if (i == ' ') {
             words++;
         }
     }
 
-    int count = 0, index = 0;
-    std::string name;
-    for (int i = 0; i < names.length(); ++i) {
-        // if ()
-            name += names[i];
-
-        // Secure that the loop will not end
-        if (i == names.length() - 1) {
-            i = -1;
-            if (count == words) {
-
-            }
+    // Count how many people.
+    int people = 1;
+    for (char i : names) {
+        if (i == ' ') {
+            people++;
         }
     }
+
+    int count = words % people;
+
+    if (count == 0) {
+        count = people;
+    }
+    std::string name;
+    int whiteSpaceCount = 1;
+    for (char i : names) {
+        if (i == ' ') {
+            whiteSpaceCount++;
+            continue;
+        }
+        if (whiteSpaceCount == count) {
+            name += i;
+        }
+    }
+
+    std::cout << name;
     return 0;
 }
