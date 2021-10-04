@@ -2,7 +2,7 @@
 
 ## Code from my algorithms and data structures university course in HSE, Moscow.
 
-### Introduction
+## Introduction
 
 As a part of my Bachelor's degree, I am taking an Algorithms and data structures course. I will upload all the related code in this repository.
 
