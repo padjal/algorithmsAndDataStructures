@@ -1,5 +1,6 @@
 # Algorithms and data structures
-	## Code from my algorithms and data structures university course in HSE, Moscow.
+
+## Code from my algorithms and data structures university course in HSE, Moscow.
 
 ### Introduction
 
