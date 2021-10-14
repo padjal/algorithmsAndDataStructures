@@ -9,3 +9,7 @@ add_executable(
         C C.cpp
         D D.cpp
         E E.cpp)
+
+set(CMAKE_CXX_FLAGS_ASAN "-g -fsanitize=address,undefined -fno-sanitize-recover=all"
+        CACHE STRING "Compiler flags in asan build"
+        FORCE)
