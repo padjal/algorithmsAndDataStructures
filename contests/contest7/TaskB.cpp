@@ -14,14 +14,6 @@ public:
 };
 
 class Tree {
-private:
-    Node *getLargest(Node *node) {
-        if (node->right_ != nullptr) {
-            return getLargest(node->right_);
-        }
-        return node;
-    }
-
 public:
     Node *root_;
 
@@ -42,10 +34,8 @@ public:
 
     void addNode(int value) {
         Node *temp = root_;
-        int current_height = 1;
 
         while (true) {
-            current_height++;
             if (value < temp->data_) {
                 if (temp->left_ == nullptr) {
                     break;
@@ -68,22 +58,18 @@ public:
         } else {
             temp->right_ = new_node;
         }
-
-        temp = nullptr;
-        new_node = nullptr;
     }
 
-    Node *getSecondLargest(Node *node) {
-        if (node->right_ == nullptr && node->left_ != nullptr) {
-            return getLargest(node->left_);
+    void printInorder(Node *node) {
+        if (node == nullptr) {
+            return;
         }
 
-        if (node->right_ != nullptr && node->right_->left_ == nullptr &&
-            node->right_->right_ == nullptr) {
-            return node;
-        }
+        printInorder(node->left_);
 
-        return getSecondLargest(node->right_);
+        std::cout << node->data_ << " ";
+
+        printInorder(node->right_);
     }
 };
 
@@ -99,7 +85,7 @@ int main() {
         std::cin >> n;
     }
 
-    std::cout << tree->getSecondLargest(tree->root_)->data_;
+    tree->printInorder(tree->root_);
 
     tree->clear(tree->root_);
     delete tree;

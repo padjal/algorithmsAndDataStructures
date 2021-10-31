@@ -15,7 +15,20 @@ public:
 
 class Tree {
 private:
-    int max_height_ = 1;
+    int maxDepth(Node *node) {
+        if (node == nullptr) {
+            return -1;
+        } else {
+            int left_depth = maxDepth(node->left_);
+            int right_depth = maxDepth(node->right_);
+
+            if (left_depth > right_depth) {
+                return (left_depth + 1);
+            } else {
+                return (right_depth + 1);
+            }
+        }
+    }
 
 public:
     Node *root_;
@@ -25,24 +38,20 @@ public:
     }
 
     void clear(Node *node) {
-        // Memory cleanup
-        if (node->left_ != nullptr) {
-            clear(node->left_);
+        if (node == nullptr) {
+            return;
         }
 
-        if (node->right_ != nullptr) {
-            clear(node->right_);
-        }
+        clear(node->left_);
+        clear(node->right_);
 
         delete node;
     }
 
     void addNode(int value) {
         Node *temp = root_;
-        int current_height = 1;
 
         while (true) {
-            current_height++;
             if (value < temp->data_) {
                 if (temp->left_ == nullptr) {
                     break;
@@ -68,14 +77,10 @@ public:
 
         temp = nullptr;
         new_node = nullptr;
-
-        if (current_height > max_height_) {
-            max_height_ = current_height;
-        }
     }
 
     int getHeight() {
-        return max_height_;
+        return maxDepth(root_) + 1;
     }
 };
 
