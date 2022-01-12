@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/TestTask.dir/main.cpp.o -o TestTask 

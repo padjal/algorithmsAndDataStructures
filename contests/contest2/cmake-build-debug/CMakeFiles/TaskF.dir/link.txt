@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/TaskF.dir/TaskF.cpp.o -o TaskF 

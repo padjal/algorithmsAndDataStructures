@@ -1,8 +1,0 @@
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/TaskF.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/TaskD.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/TestTask.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/Task6.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/Task7.dir
-/home/padjal/Documents/hse/2nd Year/algorithmsAndDataStructures/contests/contest1/cmake-build-debug/CMakeFiles/TaskE.dir
