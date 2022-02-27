@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <utility>
-#include "./student-ski.h"
+#include "student-ski.h"
 
 void quickSort(std::vector<Student> *v, int low, int high) {
     int i = low, j = high;
