@@ -11,14 +11,17 @@
 #include <string>
 #include <vector>
 
-void calc_prefix_function(std::vector<int> & prefix_func, const std::string & str)
+/*
+ * Code reference: https://habr.com/ru/post/113266/
+ */
+std::vector<int> calc_prefix_function(const std::string & str)
 {
     const size_t str_length = str.size();
 
-    prefix_func.clear();
-    prefix_func.resize(str_length);
+    std::vector<int> prefix_func(str_length);
+
     if (0 == str_length)
-        return;
+        return prefix_func;
 
     prefix_func[0] = 0;
 
@@ -65,6 +68,27 @@ std::vector<int> getBorders(std::string line){
     return result;
 }
 
+int KMP (std::string first_string, std::string second_string, std::vector<int> borders){
+    int count = 0;
+    int k = 0;
+    for (int i = 0; i < first_string.size(); ++i){
+        while ((k > 0) && second_string[k + 1] != first_string[i]) {
+            k = borders[k];
+        }
+
+        if (first_string[k + 1] = second_string[i]){
+            k++;
+        }
+        if (k == second_string.size()){
+            //вывод "P входит в T с позиции", i – m + 1;
+            count++;
+            k = borders[second_string.size()];
+        }
+    }
+
+    return count;
+}
+
 template <typename T>
 void printVector(const std::vector<T>& v){
     for(auto e : v){
@@ -77,15 +101,18 @@ int main() {
     std::string first_string;
     std::string second_string;
 
-    /*std::getline(std::cin, first_string);
+    std::getline(std::cin, first_string);
 
-    std::getline(std::cin, second_string);*/
+    std::getline(std::cin, second_string);
 
     std::vector<int> second_string_borders;
-    //second_string_borders = getBorders("abcabdabcabeabcabdabcabc");
-    calc_prefix_function(second_string_borders, "abcabdabcabeabcabdabcabc");
+    second_string_borders = calc_prefix_function(second_string);
 
-    printVector(second_string_borders);
+    std::cout << KMP(first_string, second_string, second_string_borders);
+
+    //printVector(second_string_borders);
+
+    // Print out how many times the second substring enters the first string.
 
     return 0;
 }

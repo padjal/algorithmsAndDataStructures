@@ -18,7 +18,7 @@ int bubbleSort(int *array, int array_size) {
     bool array_sorted = false;
     int swaps = 0;
 
-    for (int index = 0; index < array_size - 2 && !array_sorted; ++index) {
+    for (int index = 0; index < array_size - 1 && !array_sorted; ++index) {
         int swaps_per_iteration = 0;
         for (int j = 0; j < array_size - index - 1; ++j) {
             if (array[j] > array[j + 1]) {
